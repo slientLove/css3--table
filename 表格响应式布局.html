@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+		<style>
+			body,h1,table,a{margin:0;padding:0;}
+			h1{ width:100%;height:50px;position:fixed;left:30px;top:0;line-height:50px;}
+			table.text{width:90%;border:1px solid red;margin:50px auto;border-collapse:collapse;}
+			table.text th,table.text td{padding:0.5em 1em;border:1px solid #000;}
+			table.text th{background:#35b558;}
+			table.text a{text-decoration:none;color:#FF9900;padding:0.5em 0.5em;}
+			@media (max-width:480px){
+				table.text{border:none;}
+				table.text thead{display:none;}
+				table.text tr,table.text td{display:block;border:none;position:relative;}
+				table.text tr{margin-bottom:3px;}
+				table.text  .number{padding-left:30%;text-align:left;}
+				table.text  .number::before{content:"课程序号";position:absolute;left:0.5em;top:0.5em;}
+				table.text  .name{padding-left:30%;text-align:left;background:#35b558;}
+				table.text  .name::before{content:"课程名称";position:absolute;left:0.5em;top:0.5em;}  		
+				table.text  .action{position:absolute;left:10em;top:0;}
+			}
+		</style>
+</head>
+
+<body>
+	<h1>表格响应式布局</h1>
+	<table class="text">
+		<thead>
+			<tr>
+				<th>课程名称</th>
+				<th>课程序号</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="name">数学</td>
+				<td class="number">1231</td>
+				<td class="action"><a href="#">删除</a><a href="#">修改</a></td>
+			</tr>
+			<tr>
+				<td class="name">英语</td>
+				<td class="number">1242</td>
+				<td class="action"><a href="#">删除</a><a href="#">修改</a></td>
+			</tr>
+			<tr>
+				<td class="name">文学</td>
+				<td class="number">1243</td>
+				<td class="action"><a href="#">删除</a><a href="#">修改</a></td>
+			</tr>
+		<tbody>
+		<tfoot><tfoot>
+	</table>
+</body>
+</html>
