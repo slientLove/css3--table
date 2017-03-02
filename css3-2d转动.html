@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>选择符</title>
+	<style>
+		div{
+			background: red;width: 200px;height: 100px;margin: 30px auto;
+		
+		}
+		div:hover{
+
+			/*分别绕X轴，和绕Y轴旋转的角度,x轴30度，y轴20度		*/
+		transform: skew(30deg,20deg);
+        -ms-transform: skew(30deg,20deg);	/* IE 9 */
+        -webkit-transform: skew(30deg,20deg);	/* Safari and Chrome */
+        -o-transform: skew(30deg,20deg);	/* Opera */
+        -moz-transform: skew(30deg,20deg);	/* Firefox */
+		}
+		
+	</style>
+</head>
+<body>
+		<div>运动效果</div>
+		<div id="div1">translate运动</div>
+</body>
+</html>

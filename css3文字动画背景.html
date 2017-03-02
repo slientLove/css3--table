@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3盒模型</title>
+    <style>
+        body{   margin:0;padding: 0;background: #000;text-align: center;font: 50px/200px "微软雅黑"}
+        h1{display:inline-block;color:rgba(255,255,255,0.4); margin:200px auto;background: -webkit-linear-gradient(-30deg,rgba(255,255,255,0) 100px,rgba(255,255,255,1) 150px,rgba(255,255,255,1) 200px,rgba(255,255,255,0) 270px) no-repeat -200px 0;-webkit-background-clip:text;-moz-background-clip:text;}
+
+        /*  将背景作为文字的背景，进行背景裁切     */
+/*        h1:hover{background-position: 1000px 0;}
+*/       
+    </style>
+</head>
+<body>
+    <h1>杨若兮杨若兮杨若兮杨若兮</h1>
+    <script>
+        window.onload = function(){
+
+            var oH1 = document.getElementsByTagName("h1")[0];
+            var oLeft = -200;
+            var timer = null;
+
+            function oMove(){
+                        timer = setInterval(function(){
+                        oLeft+=20;
+                        if(oLeft==1000){        /*  判断背景图像位置    */
+                            oLeft=-200;
+                            clearInterval(timer);  //并清除定时器 
+                        }
+                        oH1.style.backgroundPosition=oLeft+"px 0px";
+                    },30);
+                }
+                oMove();
+                setInterval(function(){
+                    oMove();
+                },3000);        //每个三秒调用一次函数    
+        }
+    </script>
+</body>
+</html>

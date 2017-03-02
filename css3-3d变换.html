@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3-3d演示</title>
+    <style>
+       #wrap{width: 500px;height: 500px;margin: 50px auto;border: 5px solid black;padding: 100px 50px;-webkit-perspective:200px;-webkit-transform:scale(1);-webkit-perspective-origin:right top;}
+       .list{margin: 100px 200px;height: 100px;width: 100px;position: relative;-webkit-transform-style:preserve-3d;-webkit-transition:3s;-webkit-transform-origin:center center -50px;}
+      .list div{width: 100px;height: 100px;position: absolute;color: #fff;font:50px/90px "微软雅黑";text-align: center;}
+      .list div:nth-child(1){background:red;left: 0;top: -100px;-webkit-transform-origin:bottom;-webkit-transform:rotateX(90deg);}
+      .list div:nth-child(2){background:green;left: -100px;top: 0;-webkit-transform-origin:right;-webkit-transform:rotateY(-90deg);}
+      .list div:nth-child(3){background:orange;left: 0;top: 0;}
+      .list div:nth-child(4){background:#ccf;left: 100px;top: 0;-webkit-transform-origin:left;-webkit-transform:rotateY(90deg);}
+      .list div:nth-child(5){background:yellow;left: 0;top: 100px;-webkit-transform-origin:top;-webkit-transform:rotateX(-90deg);}
+      .list div:nth-child(6){background:blue;left: 0;top: 0;-webkit-transform:translateZ(-100px) rotateX(180deg);}
+      #wrap .list:hover{-webkit-transform:rotateY(360deg);}
+
+      /*
+	   * -webkit-persrective:  表示景深，即离物体的远近 ;
+       * -webkit-transform-style:	转换成3d视角	;
+	   * -webkit-perspective-origin:	看景物的视角，如从左上，右下等;
+	   * -webkit-transform-origin:	物体沿哪个位置转动	;
+	   * rotateX(),rotateY()分别表示沿X,Y轴转动
+	   * translateZ()表示向z轴平移一定距离
+	   * 各个div分别沿不同的轴进行翻转
+      */
+    </style>
+</head>
+<body>
+    <div id="wrap">
+    	<div class="list">
+    		<div>1</div>
+    		<div>2</div>
+    		<div>3</div>
+    		<div>4</div>
+    		<div>5</div>
+    		<div>6</div>
+    	</div>
+    </div>
+</body>
+</html>
