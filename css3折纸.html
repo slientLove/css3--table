@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>css折纸</title>
+<style type="text/css">
+@-webkit-keyframes show
+{
+	0%
+	{
+		-webkit-transform:rotateX(-120deg);
+	}
+	25%
+	{
+		-webkit-transform:rotateX(30deg);
+	}
+	50%
+	{
+		-webkit-transform:rotateX(-15deg);
+	}
+	75%
+	{
+		-webkit-transform:rotateX(8deg);
+	}
+	100%
+	{
+		-webkit-transform:rotateX(0deg);
+	}
+}
+	@-webkit-keyframes hide{
+		0%{
+			-webkit-transform:rotateX(0deg);
+		}
+		100%{
+			-webkit-transform:rotateX(-120deg);
+		}
+	}
+		body,h2{margin: 0;}
+		#wrap{width: 200px;margin: 100px auto;position: relative;-webkit-perspective:500px;-webkit-transform-style:preserve-3d;}
+		#wrap h2{margin:0;height: 40px;font:16px/40px arial;text-align: center;color: orange;background: yellow;z-index:3;position: relative;}
+		#wrap div{margin:0;width: 100%;-webkit-transform-style:preserve-3d;position: absolute;top:32px;left: 0;background: #9F0;-webkit-transform:rotateX(-120deg);-webkit-transform-origin:top;}
+		#wrap span{margin:0;height: 30px;width: 100%;display: block;font:16px/40px arial;color: #ccc;text-align: center;text-indent: 10px;}
+		#wrap>div{top: 40px;}
+	    .show{-webkit-transform:rotateX(0deg);-webkit-animation:1s show;}
+		.hide{-webkit-transform:rotateX(-120deg);-webkit-animation:1s hide;}
+	</style>
+</head>
+<body>	
+
+		<input id="btn" type="button" value="点击">
+		<div id="wrap">					<!-- 折纸布局特有方式	-->
+			<h2>这是标题</h2>
+			<div>
+				<span>1</span>
+				<div>
+					<span>2</span>
+					<div>
+						<span>3</span>
+						<div>
+							<span>4</span>
+							<div>
+								<span>5</span>
+								<div>
+									<span>6</span>
+									<div>
+										<span>7</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<script>
+	window.onload = function(){
+		var abtn = document.getElementById("btn");
+		var oDiv = document.getElementById("wrap").getElementsByTagName('div');
+		var boff = 1;
+		var timer = null;
+		var i=0;
+		abtn.onclick = function(){
+			if(timer)
+			{
+				return;				//  如果定时器已经开启，则不做任何操作
+			}
+			if(boff)
+			{	
+				i=0;
+				timer = setInterval(function()
+				{	
+					oDiv[i].className = "show";
+					i++;
+					if(i==oDiv.length){
+						clearInterval(timer);
+						boff = false;
+						timer = null;			//	到最后一个就关闭定时器
+					}
+				},100);
+					}
+			// }else{
+			// 	i=oDiv.length-1;
+			// 	timer = setInterval(function(){
+			// 		oDiv[i].className = "hide";
+			// 		i--;
+			// 		if(i<0){
+			// 			clearInterval(timer);
+			// 			boff = true;
+			// 			timer = null;
+			// 		}
+			// 	},100);
+			// }
+		}
+	}
+</script>
+</body>
+</html>
