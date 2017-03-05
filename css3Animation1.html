@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>选择符</title>
+	<style>
+		div{
+			height: 50px;background-color: red;
+		}
+		@-webkit-keyframes mycolor{
+			0%{background-color: red;}
+			30%{background-color: green;}
+			60%{background-color: yellow;}
+			100%{background-color: red;}
+		}
+		div:hover{
+			-webkit-transform:rotate(30deg);		/*	2d水平翻转	*/
+			-webkit-animation:mycolor 5s linear;
+		}
+	</style>
+</head>
+<body>
+		<div>运动效果</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>图片轮换</title>
+	<style type="text/css">
+		@-webkit-keyframes show{
+			0%{
+				-webkit-transform:rotateX(0deg);
+				opacity: 0;
+			}
+			30%{
+				-webkit-transform:rotateX(60deg);
+				opacity: 0.3;
+			}
+			60%{
+				-webkit-transform:rotateX(90deg);
+				opacity: 0.6;
+			}
+			80%{
+				-webkit-transform:rotateX(140deg);
+				opacity: 0.8;
+			}
+			100%{
+				-webkit-transform:rotateX(180deg);
+				opacity: 1;
+			}
+		}
+		@-webkit-keyframes hide{
+			0%{
+				-webkit-transform:rotateX(0deg);
+				opacity: 1;
+			}
+			100%{
+				-webkit-transform:rotateX(180deg);
+				opacity: 0;
+			}
+		}
+		body,input{margin: 0;padding: 0;}
+		#wrap{width: 1000px;height: 360px;margin: 100px auto;position: relative;-webkit-perspective:800px;-webkit-transform-style:preserve-3d;}
+		img{position: absolute;top: 0;left: 100px;-webkit-transform-origin:bottom;-webkit-transform:rotateX(-180deg);opacity: 0;}
+		#wrap input:nth-of-type(1){position: absolute;width: 70px;height: 70px;border-radius: 50%;left:0;top: 150px;outline: none;}
+		#wrap input:nth-of-type(2){position: absolute;width: 70px;height: 70px;border-radius: 50%;right: 0;top: 150px;font:16px/70px arial;outline: none;}
+		#wrap .showPic{-webkit-transform:rotateX(0deg);-webkit-animation:0.5s show;opacity: 1;}
+		.hidePic{-webkit-transform:rotateX(-180deg);-webkit-animation:0.8s hide;opacity: 0;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<input type="button" value="上一张">
+			<img class="showPic" src="img/1.jpg" >
+			<img src="img/2.jpg">
+			<img src="img/3.jpg">
+			<img src="img/4.jpg">
+		<input type="button" value="下一张">
+	</div>
+	<script>
+		window.onload = function(){
+			var oImg = document.getElementById("wrap").getElementsByTagName('img');
+			var abtn = document.getElementsByTagName('input');
+			var iNow = 0;
+			abtn[0].onclick = function(){
+				oImg[iNow].className = "hidePic";
+				iNow--;
+				if(iNow<=0){
+					iNow = oImg.length-1;
+				}
+				oImg[iNow].className = "showPic";
+			}
+			abtn[1].onclick = function(){
+				oImg[iNow].className = "hidePic";
+				iNow++;
+				if(iNow>oImg.length-1){
+					iNow=0;
+				}
+				oImg[iNow].className = "showPic";
+			}
+		}
+	</script>
+</body>
+</html>
